@@ -275,6 +275,10 @@ public class MatrizesView extends JPanel implements ActionListener, MouseListene
 		linhasPLabel.setBackground(Color.BLACK);
 		linhasPLabel.setBounds(368, 263, 73, 14);
 		this.add(linhasPLabel);
+
+		panel = new JPanel();
+		panel.setBounds(471, 320, 420, 320);
+		add(panel);
 	}
 
 	@Override
@@ -339,7 +343,7 @@ public class MatrizesView extends JPanel implements ActionListener, MouseListene
 				String string = atextField[linhaMouse][colunaMouse].getText();
 
 				if(string.isBlank())
-					string = "-" + string;
+					string = "-";
 				if((string.charAt(0)) == '-')
 					string = string.replace("-", "");
 				else
@@ -352,7 +356,7 @@ public class MatrizesView extends JPanel implements ActionListener, MouseListene
 				String string = btextField[linhaMouse][colunaMouse].getText();
 
 				if(string.isBlank())
-					string = "-" + string;
+					string = "-";
 				if((string.charAt(0)) == '-')
 					string = string.replace("-", "");
 				else
@@ -366,10 +370,14 @@ public class MatrizesView extends JPanel implements ActionListener, MouseListene
 		{
 			if(matrizA == true)
 			{
+				String string = atextField[linhaMouse][colunaMouse].getText();
+				string = string.substring(0, string.length() - 1);
 				atextField[linhaMouse][colunaMouse].setText("");
 			}
 			if(matrizB == true)
 			{
+				String string = btextField[linhaMouse][colunaMouse].getText();
+				string = string.substring(0, string.length() - 1);
 				btextField[linhaMouse][colunaMouse].setText("");
 			}
 		}
@@ -409,7 +417,6 @@ public class MatrizesView extends JPanel implements ActionListener, MouseListene
 		// botao Calcular
 		if(e.getSource() == calcularButton)
 		{
-			System.out.println("if(e.getSource()==calcularButton)");
 			MatrizesModel.calcularMatriz();
 		}
 	}
@@ -465,6 +472,7 @@ public class MatrizesView extends JPanel implements ActionListener, MouseListene
 	int linhaMouse, colunaMouse;
 	protected static boolean matrizA = false;
 	protected static boolean matrizB = false;
+	private JPanel panel;
 
 	@Override
 	public void mouseClicked(MouseEvent e)

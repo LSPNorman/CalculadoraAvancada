@@ -32,6 +32,7 @@ public class ExpressoesAritimeticasView extends JPanel implements ActionListener
 	public static JScrollPane scrollPanePassos;
 	public static JButton abrirPButton;
 	public static JButton fecharPButton;
+	private JPanel panel;
 
 	public ExpressoesAritimeticasView()
 	{
@@ -52,9 +53,9 @@ public class ExpressoesAritimeticasView extends JPanel implements ActionListener
 		this.add(textField);
 
 		numerosPanel = new JPanel();
-		numerosPanel.setBounds(10, 152, 333, 436);
-		this.add(numerosPanel);
+		numerosPanel.setBounds(10, 152, 333, 472);
 		numerosPanel.setLayout(new GridLayout(4, 3));
+		this.add(numerosPanel);
 
 		for (int i = 0; i < 9; i++)
 		{
@@ -65,6 +66,7 @@ public class ExpressoesAritimeticasView extends JPanel implements ActionListener
 			button[i].addActionListener(this);
 			numerosPanel.add(button[i]);
 		}
+
 		apagarButton = new JButton("APAGAR");
 		apagarButton.setFont(new Font("Tahoma", Font.PLAIN, 9));
 		apagarButton.setBackground(Color.darkGray);
@@ -89,7 +91,7 @@ public class ExpressoesAritimeticasView extends JPanel implements ActionListener
 		numerosPanel.add(apagarTudoButton);
 
 		operacoesPanel = new JPanel();
-		operacoesPanel.setBounds(353, 152, 87, 436);
+		operacoesPanel.setBounds(353, 152, 87, 472);
 		operacoesPanel.setLayout(new GridLayout(7, 1));
 		this.add(operacoesPanel);
 
@@ -159,6 +161,10 @@ public class ExpressoesAritimeticasView extends JPanel implements ActionListener
 				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scrollPanePassos.setBounds(471, 50, 420, 248);
 		this.add(scrollPanePassos);
+
+		panel = new JPanel();
+		panel.setBounds(471, 309, 420, 315);
+		add(panel);
 
 	}
 
